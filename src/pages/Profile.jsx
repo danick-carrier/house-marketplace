@@ -8,7 +8,7 @@ function Profile() {
   const auth = getAuth()
   useEffect(() => {
     setUser(auth.currentUser)
-    console.log(user)
+    console.log(auth.currentUser)
   },[]);
 
   return(
