@@ -43,7 +43,7 @@ function SignUp() {
 
       navigate('/')
     } catch (error) {
-      toast.error('Something went wrong with registration');
+      toast.error('Something went wrong with registration'); 
     }
   }
 
