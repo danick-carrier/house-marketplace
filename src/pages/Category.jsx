@@ -50,12 +50,33 @@ function Category() {
     };
 
     fetchListings();
-  }, []);
+  }, [params.categoryName]);
 
   return (
-    <>
-      <h1>Category</h1>
-    </>
+    <div className="category">
+      <header>
+        <p className="pageHeader">
+          {params.categoryName === "rent"
+            ? "Places for rent"
+            : "Places for sale"}
+        </p>
+      </header>
+      {loading ? (
+        <Spinner />
+      ) : listings && listings.length > 0 ? (
+        <>
+          <main>
+            <ul className="categoryListings">
+              {listings.map((listing) => {
+                return <h3 key={listing.id}>{listing.data.name}</h3>;
+              })}
+            </ul>
+          </main>
+        </>
+      ) : (
+        <p>No listings for {params.categoryName}</p>
+      )}
+    </div>
   );
 }
 
